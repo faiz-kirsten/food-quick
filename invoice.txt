@@ -1,0 +1,20 @@
+Order number: 1234
+Customer name: Faiz
+Email address: fa@k
+Phone Number: 111 111 1111
+Location: Cape Town
+
+You have ordered the following from Joey's Pizza in Cape Town:
+
+2 x Pepperoni Pizza (R78.0)
+
+Special instructions: No special Instructions given.
+
+Total: R156.0
+
+Miranda Metcalfe is nearest to the restaurant, and so he will be delivering your order to you at:
+
+13 MacDonnell str
+Ormonde
+
+If you need to contact the restaurant, their number is 198 765 4321.
