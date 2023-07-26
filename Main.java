@@ -1,9 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,14 +25,16 @@ public class Main {
         joeysPizza.addRestaurantMeal(3, "Chicken and Cheese Pizza", 1, 72.99);
         joeysPizza.addRestaurantMeal(4, "BBQ Chicken Pizza", 1, 90.00);
         joeysPizza.addRestaurantMeal(5, "Extra Cheese Pizza", 1, 90.00);
+        joeysPizza.addRestaurantMeal(6, "Wonder Why Pizza", 1, 215.00);
 
 //        System.out.println(FoodQuick.selectDriver(customerLocation));
 
         // Customer placing orders
-        joeysPizza.placeOrder();
-        joeysPizza.placeOrder();
-        joeysPizza.placeOrder();
+//        joeysPizza.receiveOrder();
+//        joeysPizza.receiveOrder();
+//        joeysPizza.receiveOrder();
 //        joeysPizza.viewRestaurantMeals();
+        newCustomer.placeOrder(joeysPizza);
         joeysPizza.viewOrderedMeals();
 
         System.out.println(joeysPizza.getOrderTotal());

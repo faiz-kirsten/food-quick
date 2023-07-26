@@ -23,10 +23,10 @@ public class Restaurant extends Details {
         return total;
     }
 
-    public void placeOrder() {
+    public void receiveOrder() {
         Scanner in = new Scanner(System.in);
         viewRestaurantMeals();
-        System.out.println("Enter the meal number of the meal you would like to order.\n");
+        System.out.println("Enter the meal number of the meal you would like to order:");
         int mealNum = -1;
 
         while (true) {
@@ -41,23 +41,33 @@ public class Restaurant extends Details {
             }
         }
 
-        System.out.println("Please enter the quantity of " + meals.get(mealNum).name + ".");
-
-        int quantity;
+        Meal newMeal = meals.get(mealNum);
+        int quantity = -1;
 
         while (true) {
             try {
-                quantity = Integer.parseInt(in.nextLine());
+                while (quantity <= 0) {
+                    if (mealsOrdered.contains(newMeal)) {
+                        System.out.println(newMeal.name + " has been added to cart already. ");
+                        viewOrderedMeals();
+                        System.out.println("Add more to quantity or just enter 0 to go back.");
+                    }
+
+                    System.out.println("Please enter the quantity of " + meals.get(mealNum).name + ":");
+                    quantity = Integer.parseInt(in.nextLine());
+
+                    if (quantity == 0) break;
+
+                    if (mealsOrdered.contains(newMeal)) {
+                        mealsOrdered.get(mealsOrdered.indexOf(newMeal)).quantity += quantity;
+                    } else {
+                        newMeal.quantity = quantity;
+                        mealsOrdered.add(newMeal);
+                    }
+                }
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Invalid Input. Please enter a valid number.");
-            }
-        }
-
-        for (Map.Entry<Integer, Meal> meal : meals.entrySet()) {
-            if (meal.getKey().equals(mealNum)) {
-                meal.getValue().quantity = quantity;
-                mealsOrdered.add(meal.getValue());
             }
         }
     }
@@ -71,12 +81,13 @@ public class Restaurant extends Details {
         System.out.println("Menu:");
         for (Map.Entry<Integer ,Meal> entry : meals.entrySet())
             System.out.println("Meal " + entry.getKey() + ": " + entry.getValue().name + ", Price: " + entry.getValue().price);
+        System.out.println();
     }
 
     public void viewOrderedMeals() {
         System.out.println("Current Ordered Meals:");
         for (Meal m : mealsOrdered) {
-            System.out.println(m.name + " " + m.quantity + " " + m.price);
+            System.out.println(m.quantity + " x " + m.name + " (" + m.price + ")");
         }
     }
 }
