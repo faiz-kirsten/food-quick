@@ -86,7 +86,7 @@ public class Restaurant extends Details {
 
     public void viewOrderedMeals() {
         for (Meal m : mealsOrdered) {
-            System.out.println(m.quantity + " x " + m.name + " (" + m.price + ")");
+            System.out.println(m.quantity + " x " + m.name + " (R" + m.price + ")");
         }
     }
 }

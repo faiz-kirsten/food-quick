@@ -8,7 +8,6 @@ public class Main {
         String customerAddress = FoodQuick.validateCustomerAddress(); // split questions into street and suburb
         Customer newCustomer = new Customer(customerName, customerNum, customerLocation,
                 customerAddress, customerEmail);
-        // Restaurant
         Restaurant joeysPizza = new Restaurant("Joey's Pizza", FoodQuick.formatPhoneNumber(1987654321),
                 customerLocation, 1234);
 

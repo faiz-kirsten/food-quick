@@ -24,8 +24,11 @@ public class Customer extends Details {
                         if (option != -1 || restaurant.mealsOrdered.isEmpty()) {
                             if (restaurant.mealsOrdered.isEmpty()) {
                                 System.out.println("Your cart is empty. Please place an order: ");
+                                option = 0;
                             }
                             restaurant.addOrderedMeal();
+                            System.out.println("Current Order: ");
+                            restaurant.viewOrderedMeals();
                         }
                     }
                     break;
@@ -36,5 +39,6 @@ public class Customer extends Details {
 
             System.out.println("Any special instructions for the meals you ordered? Press enter to leave blank.");
             specialInstructions = in.nextLine();
+
         }
 }

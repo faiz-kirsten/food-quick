@@ -272,7 +272,6 @@ public class FoodQuick {
                 System.out.println("Field cannot be blank and it must be longer than 3 letters");
             }
         }
-
         return street + ", " + suburb;
     }
 
